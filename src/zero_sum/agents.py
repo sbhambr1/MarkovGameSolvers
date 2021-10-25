@@ -82,7 +82,7 @@ class OptimalMixed(Strategy):
         return (float(m.ObjVal), policy)
 
 def main():
-    agents = [UniformRandom(), OptimalMixed()]
+    agents = [UniformRandom(), OptimalMixed(), MaxMinPure()]
 
     # Initialize the final output string
     s_header = 'gamma '
