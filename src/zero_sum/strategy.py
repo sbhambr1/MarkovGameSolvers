@@ -1,12 +1,12 @@
 import importlib
 import numpy as np
-from game import MTD_Game 
+from game import iCTF_Game 
 from utils import *
 
 __author__ = "Sailik Sengupta"
 
 class Strategy:
-    def __init__(self, game_to_play=MTD_Game(), gamma=0.5):
+    def __init__(self, game_to_play=iCTF_Game(), gamma=0.5):
         self.game = game_to_play
         self.DISCOUNT_FACTOR = gamma
         self.lib = importlib.import_module('gurobi')
@@ -14,7 +14,7 @@ class Strategy:
     def set_gamma(self, gamma):
         self.DISCOUNT_FACTOR = gamma
 
-    def initilize_V(self, S):
+    def initialize_V(self, S):
         V = {}
         for s in S:
             V[s] = 0
@@ -46,7 +46,7 @@ class Strategy:
         R = self.game.get_R()
         T = self.game.get_T() 
 
-        V = self.initilize_V(S) 
+        V = self.initialize_V(S) 
 
         for k in range(301):
             Q = self.update_Q(S, A1, A2, R, T, V)

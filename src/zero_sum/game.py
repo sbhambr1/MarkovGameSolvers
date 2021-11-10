@@ -81,21 +81,36 @@ class MTD_Game(object):
         return self.T
 
 class iCTF_Game(object):
+
     def __init__(self):
-        self.S = [1, 2, 3]
+        self.S = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
         self.A = [
             # Row player (Attacker) actions corresponding to each state
             [
-                ['no-op', 'exp-1', 'exp-2', 'exp-3'], #Attacker on first server 
-                ['no-op', 'exp-2', 'exp-3'], #Attacker on second server
-                ['no-op', 'exp-3'] #Attacker on third server
+                ['no-op', 'exp-1', 'exp-2', 'exp-3'], #Attacker on first server - S1
+                ['no-op', 'exp-2', 'exp-3'], #Attacker on second server - S2
+                ['no-op', 'exp-1', 'exp-2', 'exp-3'], #Attacker on first server - S3
+                ['no-op', 'exp-3'], #Attacker on third server - S4
+                ['no-op', 'exp-2', 'exp-3'], #Attacker on second server - S5
+                ['no-op', 'exp-2', 'exp-3'], #Attacker on second server - S6
+                ['no-op', 'exp-3'], #Attacker on third server - S7
+                ['no-op', 'exp-3'], #Attacker on third server - S8
+                ['no-op', 'exp-3'], #Attacker on third server - S9
+                ['no-op', 'exp-3'] #Attacker on third server - S10
             ],
             # Column player (Defender) actions corresponding to each state
             [
-                ['no-mon', 'hp-1', 'hp-2', 'hp-3'],
-                ['no-mon', 'hp-2', 'hp-3'],
-                ['no-mon', 'hp-3']
+                ['no-mon', 'hp-1', 'hp-2', 'hp-3'], # S1
+                ['no-mon', 'hp-2', 'hp-3'], # S2
+                ['no-mon', 'hp-1', 'hp-2', 'hp-3'], # S3
+                ['no-mon', 'hp-3'], # S4
+                ['no-mon', 'hp-2', 'hp-3'], # S5
+                ['no-mon', 'hp-2', 'hp-3'], # S6
+                ['no-mon', 'hp-3'], # S7
+                ['no-mon', 'hp-3'], # S8
+                ['no-mon', 'hp-3'], # S9
+                ['no-mon', 'hp-3'] # S10
             ]
         ]
 
