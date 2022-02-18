@@ -9,7 +9,7 @@ class Strategy:
     def __init__(self, game_to_play=iCTF_Game(), gamma=0.5):
         self.game = game_to_play
         self.DISCOUNT_FACTOR = gamma
-        self.lib = importlib.import_module('gurobi')
+        self.lib = importlib.import_module('gurobipy')
 
     def set_gamma(self, gamma):
         self.DISCOUNT_FACTOR = gamma
