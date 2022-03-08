@@ -190,236 +190,299 @@ strategies_new_hp = np.array([
     ]
 ])
 
+optimal_mixed_gamma = np.array([
+    [
+        #gamma = 0.5
+        [-7.378487640724603, -3.3197512739857147, -7.496142688168831, -3.0000000000000004, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0], 
+        [-8.006725181677554, -3.239120519578889, -8.318825042314543, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0, -3.0],
+        [-7.268823723245133, -2.1730810644505407, -7.549757772166615, -3.0, -2.045087267133338, -2.002079646956825, -3.0, -3.0, -3.0, -3.0]
+    ],
+    [
+        #gamma = 0.55
+        [-7.853847828218031, -3.71793284163171, -7.966237505840968, -3.333333333333334, -3.333333333333333, -3.333333333333333, -3.333333333333334, -3.333333333333334, -3.333333333333334, -3.333333333333334],
+        [-8.587462664854904, -3.6318409401891993, -8.954863037552666, -3.3333333333333335, -3.333333333333333, -3.333333333333333, -3.333333333333334, -3.333333333333334, -3.333333333333334, -3.333333333333334],
+        [-7.746606127473077, -2.43992565998048, -8.081471902098858, -3.3333333333333335, -2.2825737939584805, -2.225591530098113, -3.333333333333334, -3.333333333333334, -3.333333333333334, -3.333333333333334]
+    ],
+    [
+        #gamma = 0.6
+        [-8.42965572232598, -4.21204039850597, -8.528273788767603, -3.7499999999999982, -3.7499999999999982, -3.7499999999999982, -3.7499999999999982, -3.7499999999999982, -3.7499999999999982, -3.7499999999999982],
+        [-9.282266622638396, -4.123415277139301, -9.711631594171253, -3.75, -3.75, -3.75, -3.7499999999999982, -3.7499999999999982, -3.7499999999999982, -3.7499999999999982],
+        [-8.31035735439421, -2.7749916598389284, -8.70768658523047, -3.75, -2.5818683147693022, -2.5055426385408794, -3.7499999999999982, -3.7499999999999982, -3.7499999999999982, -3.7499999999999982]
+    ],
+    [
+        #gamma = 0.65
+        [-9.145905020699661, -4.841618667247477, -9.218958552423087, -4.285714285714285, -4.285714285714285, -4.285714285714285, -4.285714285714283, -4.285714285714283, -4.285714285714283, -4.285714285714283],
+        [-10.134043558251234, -4.755406686649815, -10.632410168304135, -4.285714285714285, -4.285714285714285, -4.285714285714285, -4.285714285714283, -4.285714285714285, -4.285714285714285, -4.285714285714285],
+        [-8.991119039272863, -3.207519570407403, -9.46118048970386, -4.285714285714285, -2.9704546395110487, -2.866499182573401, -4.285714285714283, -4.285714285714285, -4.285714285714285, -4.285714285714285]
+    ],
+    [
+        #gamma = 0.7
+        [-10.068193838520614, -5.671752735193775, -10.099054988853647, -4.999999999999998, -4.999999999999998, -4.999999999999998, -4.999999999999998, -4.999999999999998, -4.999999999999998, -4.999999999999998],
+        [-11.202057922972564, -5.596353517389372, -11.786529452742403, -4.999999999999998, -4.999999999999998, -4.999999999999998, -4.999999999999998, -4.999999999999998, -4.999999999999998, -4.999999999999998], 
+        [-9.839250275972276, -3.7861682757442274, -10.394471015919759, -4.999999999999998, -3.494773403084623, -3.349758746975971, -4.999999999999998, -4.999999999999998, -4.999999999999998, -4.999999999999998],
+    ],
+    [
+        #gamma = 0.75
+        [-11.364085664816024, -6.829408299891047, -11.362958194659226, -5.999999999999998, -5.999999999999998, -5.999999999999998, -5.999999999999998, -5.999999999999998, -5.999999999999998, -5.999999999999998],
+        [-12.544796172251527, -6.768001890012002, -13.294099856705948, -5.999999999999998, -5.999999999999998, -5.999999999999998, -5.999999999999998, -5.999999999999998, -5.999999999999998, -5.999999999999998],
+        [-10.943475289847093, -4.598413846031705, -11.598975150839017, -5.999999999999998, -4.239789828873535, -4.030553186462099, -5.999999999999998, -5.999999999999998, -5.999999999999998, -5.999999999999998]
+    ],
+    [
+        #gamma = 0.8
+        [-13.227691215343736, -8.540503875101978, -13.175865235686418, -7.5, -7.500000000000001, -7.5, -7.499999999999998, -7.5, -7.5, -7.5], 
+        [-14.490509238825954, -8.509860614636768, -15.386958983336473, -7.5, -7.5, -7.5, -7.499999999999998, -7.499999999999998, -7.499999999999998, -7.499999999999998],
+        [-12.478812176990406, -5.819192227877442, -13.253179165148516, -7.5, -5.3788063991689485, -5.061976749922556, -7.499999999999998, -7.499999999999998, -7.499999999999998, -7.499999999999998]
+    ],
+    [
+        #gamma = 0.85
+        [-16.183356468130675, -11.33189687650437, -16.033301790463963, -9.999999999999993, -9.999999999999991, -9.999999999999993, -9.999999999999993, -9.999999999999993, -9.999999999999993, -9.999999999999993],
+        [-17.639003916040554, -11.393751484909842, -18.76767423832613, -9.999999999999993, -9.999999999999993, -9.999999999999993, -9.999999999999993, -9.999999999999993, -9.999999999999993, -9.999999999999993],
+        [-14.787244539492471, -7.857939347618573, -15.769436374940053, -9.999999999999993, -7.32616777361741, -6.810790171605226, -9.999999999999993, -9.999999999999993, -9.999999999999993, -9.999999999999993]
+    ],
+    [
+        #gamma = 0.9
+        [-21.789898957859354, -16.75709624029196, -21.448166972857727, -14.99999999999974, -14.99999999999974, -14.999999999999744, -14.999999999999735, -14.999999999999744, -14.999999999999744, -14.999999999999744],
+        [-23.67768368500686, -17.045644330889637, -24.990414538712052, -14.999999999999744, -14.999999999999744, -14.999999999999744, -14.999999999999735, -14.999999999999737, -14.999999999999744, -14.999999999999744],
+        [-19.46413862547111, -11.956802350913414, -20.39828021818137, -14.999999999999744, -11.364732485804135, -10.425642784865175, -14.999999999999735, -14.999999999999737, -14.999999999999744, -14.999999999999744]
+    ],
+    [
+        #gamma = 0.95
+        [-37.67557701062915, -32.430971145564975, -36.94165998316571, -29.999994085385467, -29.999994085385474, -29.99999408538546, -29.999994085385474, -29.99999408538546, -29.999994085385453, -29.999994085385445],
+        [-40.98021846017648, -33.30390039789375, -41.67151145465002, -29.99999408538546, -29.99999408538546, -29.99999408538546, -29.999994085385474, -29.999994085385467, -29.99999408538546, -29.99999408538546],
+        [-33.19364521856391, -24.56053834756213, -33.7549493800915, -29.99999408538546, -24.202678066901264, -22.116918703241936, -29.999994085385474, -29.999994085385467, -29.99999408538546, -29.99999408538546]
+    ]
+])
+
 gamma = np.array([0.5,0.55,0.6,0.65,0.7,0.75,0.8,0.85,0.9,0.95])
 
 #Plot 1
 
-V0_URS = []
-V0_OPT = []
-V0_MMP = []
+V0_INIT = []
+V0_UPD1 = []
+V0_UPD2 = []
 
-strategies = strategies_new_hp
+strategies = optimal_mixed_gamma
 
 for i in range(len(strategies)):
-    V0_URS.append(strategies[i][0][0])
-    V0_OPT.append(strategies[i][1][0])
-    V0_MMP.append(strategies[i][2][0])
+    V0_INIT.append(strategies[i][0][0])
+    V0_UPD1.append(strategies[i][1][0])
+    V0_UPD2.append(strategies[i][2][0])
 
 
-plt.plot(gamma, np.asarray(V0_URS), marker='o')
-plt.plot(gamma, np.asarray(V0_OPT), marker='x')
-plt.plot(gamma, np.asarray(V0_MMP), marker='+')
+plt.plot(gamma, np.asarray(V0_INIT), marker='o')
+plt.plot(gamma, np.asarray(V0_UPD1), marker='x')
+plt.plot(gamma, np.asarray(V0_UPD2), marker='+')
 plt.ylabel("Defender's Utility $\longrightarrow$")
 plt.xlabel("$\gamma \longrightarrow$")
 plt.title("Defender's value in state S0.")
 
-plt.legend(['Uniform Random Strategy', 'Optimal Mixed Strategy', 'Min Max Pure Strategy'], loc='lower left')
+plt.legend(['Initial Model', 'Updated model w/ tuned params', 'Updated model w/ non-uniform costs'], loc='lower left')
 
 plt.show()
 
 #Plot 2
 
-V1_URS = []
-V1_OPT = []
-V1_MMP = []
+V1_INIT = []
+V1_UPD1 = []
+V1_UPD2 = []
 
 for i in range(len(strategies)):
-    V1_URS.append(strategies[i][0][1])
-    V1_OPT.append(strategies[i][1][1])
-    V1_MMP.append(strategies[i][2][1])
+    V1_INIT.append(strategies[i][0][1])
+    V1_UPD1.append(strategies[i][1][1])
+    V1_UPD2.append(strategies[i][2][1])
 
 
-plt.plot(gamma, np.asarray(V1_URS), marker='o')
-plt.plot(gamma, np.asarray(V1_OPT), marker='x')
-plt.plot(gamma, np.asarray(V1_MMP), marker='+')
+plt.plot(gamma, np.asarray(V1_INIT), marker='o')
+plt.plot(gamma, np.asarray(V1_UPD1), marker='x')
+plt.plot(gamma, np.asarray(V1_UPD2), marker='+')
 plt.ylabel("Defender's Utility $\longrightarrow$")
 plt.xlabel("$\gamma \longrightarrow$")
 plt.title("Defender's value in state S1.")
 
-plt.legend(['Uniform Random Strategy', 'Optimal Mixed Strategy', 'Min Max Pure Strategy'], loc='lower left')
+plt.legend(['Initial Model', 'Updated model w/ tuned params', 'Updated model w/ non-uniform costs'], loc='lower left')
 
 plt.show()
 
 #Plot 3
 
-V2_URS = []
-V2_OPT = []
-V2_MMP = []
+V2_INIT = []
+V2_UPD1 = []
+V2_UPD2 = []
 
 for i in range(len(strategies)):
-    V2_URS.append(strategies[i][0][2])
-    V2_OPT.append(strategies[i][1][2])
-    V2_MMP.append(strategies[i][2][2])
+    V2_INIT.append(strategies[i][0][2])
+    V2_UPD1.append(strategies[i][1][2])
+    V2_UPD2.append(strategies[i][2][2])
 
 
-plt.plot(gamma, np.asarray(V2_URS), marker='o')
-plt.plot(gamma, np.asarray(V2_OPT), marker='x')
-plt.plot(gamma, np.asarray(V2_MMP), marker='+')
+plt.plot(gamma, np.asarray(V2_INIT), marker='o')
+plt.plot(gamma, np.asarray(V2_UPD1), marker='x')
+plt.plot(gamma, np.asarray(V2_UPD2), marker='+')
 plt.ylabel("Defender's Utility $\longrightarrow$")
 plt.xlabel("$\gamma \longrightarrow$")
 plt.title("Defender's value in state S2.")
 
-plt.legend(['Uniform Random Strategy', 'Optimal Mixed Strategy', 'Min Max Pure Strategy'], loc='lower left')
+plt.legend(['Initial Model', 'Updated model w/ tuned params', 'Updated model w/ non-uniform costs'], loc='lower left')
 
 plt.show()
 
 #Plot 4
 
-V3_URS = []
-V3_OPT = []
-V3_MMP = []
+V3_INIT = []
+V3_UPD1 = []
+V3_UPD2 = []
 
 for i in range(len(strategies)):
-    V3_URS.append(strategies[i][0][3])
-    V3_OPT.append(strategies[i][1][3])
-    V3_MMP.append(strategies[i][2][3])
+    V3_INIT.append(strategies[i][0][3])
+    V3_UPD1.append(strategies[i][1][3])
+    V3_UPD2.append(strategies[i][2][3])
 
 
-plt.plot(gamma, np.asarray(V3_URS), marker='o')
-plt.plot(gamma, np.asarray(V3_OPT), marker='x')
-plt.plot(gamma, np.asarray(V3_MMP), marker='+')
+plt.plot(gamma, np.asarray(V3_INIT), marker='o')
+plt.plot(gamma, np.asarray(V3_UPD1), marker='x')
+plt.plot(gamma, np.asarray(V3_UPD2), marker='+')
 plt.ylabel("Defender's Utility $\longrightarrow$")
 plt.xlabel("$\gamma \longrightarrow$")
 plt.title("Defender's value in state S3.")
 
-plt.legend(['Uniform Random Strategy', 'Optimal Mixed Strategy', 'Min Max Pure Strategy'], loc='lower left')
+plt.legend(['Initial Model', 'Updated model w/ tuned params', 'Updated model w/ non-uniform costs'], loc='lower left')
 
 plt.show()
 
 #Plot 5
 
-V4_URS = []
-V4_OPT = []
-V4_MMP = []
+V4_INIT = []
+V4_UPD1 = []
+V4_UPD2 = []
 
 for i in range(len(strategies)):
-    V4_URS.append(strategies[i][0][4])
-    V4_OPT.append(strategies[i][1][4])
-    V4_MMP.append(strategies[i][2][4])
+    V4_INIT.append(strategies[i][0][4])
+    V4_UPD1.append(strategies[i][1][4])
+    V4_UPD2.append(strategies[i][2][4])
 
 
-plt.plot(gamma, np.asarray(V4_URS), marker='o')
-plt.plot(gamma, np.asarray(V4_OPT), marker='x')
-plt.plot(gamma, np.asarray(V4_MMP), marker='+')
+plt.plot(gamma, np.asarray(V4_INIT), marker='o')
+plt.plot(gamma, np.asarray(V4_UPD1), marker='x')
+plt.plot(gamma, np.asarray(V4_UPD2), marker='+')
 plt.ylabel("Defender's Utility $\longrightarrow$")
 plt.xlabel("$\gamma \longrightarrow$")
 plt.title("Defender's value in state S4.")
 
-plt.legend(['Uniform Random Strategy', 'Optimal Mixed Strategy', 'Min Max Pure Strategy'], loc='lower left')
+plt.legend(['Initial Model', 'Updated model w/ tuned params', 'Updated model w/ non-uniform costs'], loc='lower left')
 
 plt.show()
 
 #Plot 6
 
-V5_URS = []
-V5_OPT = []
-V5_MMP = []
+V5_INIT = []
+V5_UPD1 = []
+V5_UPD2 = []
 
 for i in range(len(strategies)):
-    V5_URS.append(strategies[i][0][5])
-    V5_OPT.append(strategies[i][1][5])
-    V5_MMP.append(strategies[i][2][5])
+    V5_INIT.append(strategies[i][0][5])
+    V5_UPD1.append(strategies[i][1][5])
+    V5_UPD2.append(strategies[i][2][5])
 
 
-plt.plot(gamma, np.asarray(V5_URS), marker='o')
-plt.plot(gamma, np.asarray(V5_OPT), marker='x')
-plt.plot(gamma, np.asarray(V5_MMP), marker='+')
+plt.plot(gamma, np.asarray(V5_INIT), marker='o')
+plt.plot(gamma, np.asarray(V5_UPD1), marker='x')
+plt.plot(gamma, np.asarray(V5_UPD2), marker='+')
 plt.ylabel("Defender's Utility $\longrightarrow$")
 plt.xlabel("$\gamma \longrightarrow$")
 plt.title("Defender's value in state S5.")
 
-plt.legend(['Uniform Random Strategy', 'Optimal Mixed Strategy', 'Min Max Pure Strategy'], loc='lower left')
+plt.legend(['Initial Model', 'Updated model w/ tuned params', 'Updated model w/ non-uniform costs'], loc='lower left')
 
 plt.show()
 
 #Plot 7
 
-V6_URS = []
-V6_OPT = []
-V6_MMP = []
+V6_INIT = []
+V6_UPD1 = []
+V6_UPD2 = []
 
 for i in range(len(strategies)):
-    V6_URS.append(strategies[i][0][6])
-    V6_OPT.append(strategies[i][1][6])
-    V6_MMP.append(strategies[i][2][6])
+    V6_INIT.append(strategies[i][0][6])
+    V6_UPD1.append(strategies[i][1][6])
+    V6_UPD2.append(strategies[i][2][6])
 
 
-plt.plot(gamma, np.asarray(V6_URS), marker='o')
-plt.plot(gamma, np.asarray(V6_OPT), marker='x')
-plt.plot(gamma, np.asarray(V6_MMP), marker='+')
+plt.plot(gamma, np.asarray(V6_INIT), marker='o')
+plt.plot(gamma, np.asarray(V6_UPD1), marker='x')
+plt.plot(gamma, np.asarray(V6_UPD2), marker='+')
 plt.ylabel("Defender's Utility $\longrightarrow$")
 plt.xlabel("$\gamma \longrightarrow$")
 plt.title("Defender's value in state S6.")
 
-plt.legend(['Uniform Random Strategy', 'Optimal Mixed Strategy', 'Min Max Pure Strategy'], loc='lower left')
+plt.legend(['Initial Model', 'Updated model w/ tuned params', 'Updated model w/ non-uniform costs'], loc='lower left')
 
 plt.show()
 
 #Plot 8
 
-V7_URS = []
-V7_OPT = []
-V7_MMP = []
+V7_INIT = []
+V7_UPD1 = []
+V7_UPD2 = []
 
 for i in range(len(strategies)):
-    V7_URS.append(strategies[i][0][7])
-    V7_OPT.append(strategies[i][1][7])
-    V7_MMP.append(strategies[i][2][7])
+    V7_INIT.append(strategies[i][0][7])
+    V7_UPD1.append(strategies[i][1][7])
+    V7_UPD2.append(strategies[i][2][7])
 
 
-plt.plot(gamma, np.asarray(V7_URS), marker='o')
-plt.plot(gamma, np.asarray(V7_OPT), marker='x')
-plt.plot(gamma, np.asarray(V7_MMP), marker='+')
+plt.plot(gamma, np.asarray(V7_INIT), marker='o')
+plt.plot(gamma, np.asarray(V7_UPD1), marker='x')
+plt.plot(gamma, np.asarray(V7_UPD2), marker='+')
 plt.ylabel("Defender's Utility $\longrightarrow$")
 plt.xlabel("$\gamma \longrightarrow$")
 plt.title("Defender's value in state S7.")
 
-plt.legend(['Uniform Random Strategy', 'Optimal Mixed Strategy', 'Min Max Pure Strategy'], loc='lower left')
+plt.legend(['Initial Model', 'Updated model w/ tuned params', 'Updated model w/ non-uniform costs'], loc='lower left')
 
 plt.show()
 
 #Plot 9
 
-V8_URS = []
-V8_OPT = []
-V8_MMP = []
+V8_INIT = []
+V8_UPD1 = []
+V8_UPD2 = []
 
 for i in range(len(strategies)):
-    V8_URS.append(strategies[i][0][8])
-    V8_OPT.append(strategies[i][1][8])
-    V8_MMP.append(strategies[i][2][8])
+    V8_INIT.append(strategies[i][0][8])
+    V8_UPD1.append(strategies[i][1][8])
+    V8_UPD2.append(strategies[i][2][8])
 
 
-plt.plot(gamma, np.asarray(V8_URS), marker='o')
-plt.plot(gamma, np.asarray(V8_OPT), marker='x')
-plt.plot(gamma, np.asarray(V8_MMP), marker='+')
+plt.plot(gamma, np.asarray(V8_INIT), marker='o')
+plt.plot(gamma, np.asarray(V8_UPD1), marker='x')
+plt.plot(gamma, np.asarray(V8_UPD2), marker='+')
 plt.ylabel("Defender's Utility $\longrightarrow$")
 plt.xlabel("$\gamma \longrightarrow$")
 plt.title("Defender's value in state S8.")
 
-plt.legend(['Uniform Random Strategy', 'Optimal Mixed Strategy', 'Min Max Pure Strategy'], loc='lower left')
+plt.legend(['Initial Model', 'Updated model w/ tuned params', 'Updated model w/ non-uniform costs'], loc='lower left')
 
 plt.show()
 
 #Plot 10
 
-V9_URS = []
-V9_OPT = []
-V9_MMP = []
+V9_INIT = []
+V9_UPD1 = []
+V9_UPD2 = []
 
 for i in range(len(strategies)):
-    V9_URS.append(strategies[i][0][9])
-    V9_OPT.append(strategies[i][1][9])
-    V9_MMP.append(strategies[i][2][9])
+    V9_INIT.append(strategies[i][0][9])
+    V9_UPD1.append(strategies[i][1][9])
+    V9_UPD2.append(strategies[i][2][9])
 
 
-plt.plot(gamma, np.asarray(V9_URS), marker='o')
-plt.plot(gamma, np.asarray(V9_OPT), marker='x')
-plt.plot(gamma, np.asarray(V9_MMP), marker='+')
+plt.plot(gamma, np.asarray(V9_INIT), marker='o')
+plt.plot(gamma, np.asarray(V9_UPD1), marker='x')
+plt.plot(gamma, np.asarray(V9_UPD2), marker='+')
 plt.ylabel("Defender's Utility $\longrightarrow$")
 plt.xlabel("$\gamma \longrightarrow$")
 plt.title("Defender's value in state S9.")
 
-plt.legend(['Uniform Random Strategy', 'Optimal Mixed Strategy', 'Min Max Pure Strategy'], loc='lower left')
+plt.legend(['Initial Model', 'Updated model w/ tuned params', 'Updated model w/ non-uniform costs'], loc='lower left')
 
 plt.show()
