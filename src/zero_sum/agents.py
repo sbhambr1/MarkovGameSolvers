@@ -1,5 +1,7 @@
 import numpy as np
 from strategy import Strategy
+from matplotlib import pyplot as plt
+import os
 
 __author__ = "Sailik Sengupta"
 
@@ -87,30 +89,98 @@ def main():
     # Initialize the final output string
     s_header = 'gamma '
     s = ''
+
+    URS_results = []
+    OPT_results = []
+    MMP_results = []
     
-    for gamma in range(50, 100, 5):
+    for gamma in range(0, 100, 5):
         
         # First column of the output has gamma values for that run
         gamma = gamma/100.0
-        s += '\n{} '.format(gamma)
-        print( 'Discount Factor: {}'.format(gamma))
+        # s += '\n{} '.format(gamma)
+        # print( 'Discount Factor: {}'.format(gamma))
+
+        URS_gamma_result = []
+        OPT_gamma_result = []
+        MMP_gamma_result = []
 
         for agent in agents:
             agent.set_gamma(gamma)
             V, pi = agent.run()
-            for state in V.keys():
-                
-                # check if header is ready
-                if '\n' not in s_header:
-                    s_header += 'V{}_{} '.format(state, agent.get_name())
-
-                s += '{} '.format(V[state])
             
-        if '\n' not in s_header:
-            s_header += '\n'
+            for key in V.keys():
+                if agent.get_name() == 'OPT':
+                    OPT_gamma_result.append(V[key])
+                elif agent.get_name() == 'MMP':
+                    MMP_gamma_result.append(V[key])
+                elif agent.get_name() == 'URS':
+                    URS_gamma_result.append(V[key])
 
-    s = s_header + s
-    print(s)
+            # for state in V.keys():
+                
+            #     # check if header is ready
+            #     if '\n' not in s_header:
+            #         s_header += 'V{}_{} '.format(state, agent.get_name())
+
+            #     s += '{} '.format(V[state])
+            
+        # if '\n' not in s_header:
+        #     s_header += '\n'
+
+        URS_results.append(URS_gamma_result)
+        OPT_results.append(OPT_gamma_result)
+        MMP_results.append(MMP_gamma_result)
+
+    # s = s_header + s
+    # print(s)
+    print('Results ready')
+    # Plot the results
+
+    gamma = np.arange(0, 100, 5)/100.0
+    
+    total_MMP_results = []
+    total_URS_results = []
+    total_OPT_results = []
+    for state in range(10):
+        state_MMP_results = []
+        state_URS_results = []
+        state_OPT_results = []
+        for i in range(20):
+            state_MMP_results.append(MMP_results[i][state])
+            state_URS_results.append(URS_results[i][state])
+            state_OPT_results.append(OPT_results[i][state])
+        total_MMP_results.append(state_MMP_results)
+        total_URS_results.append(state_URS_results)
+        total_OPT_results.append(state_OPT_results)
+
+    root_dir = os.getcwd()
+    dir_name = 'Expert_Model_Non_Uniform'
+    path = root_dir + '/src/zero_sum/plots/' + dir_name
+    if not os.path.exists(path):
+        os.makedirs(path)
+    
+    for i in range(10):
+        plt.figure()
+        plt.plot(gamma, total_MMP_results[i], label='MMP', linestyle='--', marker='o', color='red')
+        plt.plot(gamma, total_URS_results[i], label='URS', linestyle=':', marker='x', color='blue')
+        plt.plot(gamma, total_OPT_results[i], label='OPT', linestyle='-', marker='+', color='green')
+        plt.legend(['MMP', 'URS', 'OPT'])
+        plt.title('State {}'.format(i))
+        plt.xlabel('Discount Factor $\gamma \longrightarrow$')
+        plt.ylabel("Defender's Utility $\mathcal{V}_D \longrightarrow$")
+        plt.savefig(path + '/state_{}.png'.format(i))
+
+            
+
+    # plt.plot(gamma, URS_results[i], label='URS', color='red', marker='o')
+    #         plt.plot(gamma, OPT_results[i], label='OPT', color='blue', marker='x')
+    #         plt.plot(gamma, MMP_results[i], label='MMP', color='green', marker='+')
+    #         plt.plt.ylabel("Defender's Utility $\longrightarrow$")
+    #         plt.xlabel("$\gamma \longrightarrow$")
+    #         plt.title("Defender's value in state {}".format(i))
+    #         plt.legend()
+    #         plt.show()
     return(s)
 
 if __name__ == '__main__':
