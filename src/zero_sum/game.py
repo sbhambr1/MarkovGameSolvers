@@ -435,7 +435,7 @@ class iCTF_Game(object):
 
     def get_R(self):
         # choose from the following: R_uniform, R_non_uniform
-        return self.R_uniform
+        return self.R_non_uniform
 
     def get_T(self):
         # choose from the following: T_mi_random, T_mi_expert, T_mu

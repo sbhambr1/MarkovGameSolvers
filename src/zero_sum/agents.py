@@ -85,6 +85,7 @@ class OptimalMixed(Strategy):
 
 def main():
     agents = [UniformRandom(), OptimalMixed(), MaxMinPure()]
+    print_strategy_comparison = False
 
     # Initialize the final output string
     s_header = 'gamma '
@@ -117,70 +118,64 @@ def main():
                 elif agent.get_name() == 'URS':
                     URS_gamma_result.append(V[key])
 
-            # for state in V.keys():
+            for state in V.keys():
                 
-            #     # check if header is ready
-            #     if '\n' not in s_header:
-            #         s_header += 'V{}_{} '.format(state, agent.get_name())
+                # check if header is ready
+                if '\n' not in s_header:
+                    s_header += 'V{}_{} '.format(state, agent.get_name())
 
-            #     s += '{} '.format(V[state])
+                s += '{} '.format(V[state])
             
-        # if '\n' not in s_header:
-        #     s_header += '\n'
+        if '\n' not in s_header:
+            s_header += '\n'
 
         URS_results.append(URS_gamma_result)
         OPT_results.append(OPT_gamma_result)
         MMP_results.append(MMP_gamma_result)
+
+    with open('updated_non_uniform.npy', 'wb') as f:
+        np.save(f, OPT_results)
 
     # s = s_header + s
     # print(s)
     print('Results ready')
     # Plot the results
 
-    gamma = np.arange(0, 100, 5)/100.0
-    
-    total_MMP_results = []
-    total_URS_results = []
-    total_OPT_results = []
-    for state in range(10):
-        state_MMP_results = []
-        state_URS_results = []
-        state_OPT_results = []
-        for i in range(20):
-            state_MMP_results.append(MMP_results[i][state])
-            state_URS_results.append(URS_results[i][state])
-            state_OPT_results.append(OPT_results[i][state])
-        total_MMP_results.append(state_MMP_results)
-        total_URS_results.append(state_URS_results)
-        total_OPT_results.append(state_OPT_results)
+    if print_strategy_comparison:
+        gamma = np.arange(0, 100, 5)/100.0
+        
+        total_MMP_results = []
+        total_URS_results = []
+        total_OPT_results = []
+        for state in range(10):
+            state_MMP_results = []
+            state_URS_results = []
+            state_OPT_results = []
+            for i in range(20):
+                state_MMP_results.append(MMP_results[i][state])
+                state_URS_results.append(URS_results[i][state])
+                state_OPT_results.append(OPT_results[i][state])
+            total_MMP_results.append(state_MMP_results)
+            total_URS_results.append(state_URS_results)
+            total_OPT_results.append(state_OPT_results)
 
-    root_dir = os.getcwd()
-    dir_name = 'Updated_Model_Uniform'
-    path = root_dir + '/src/zero_sum/plots/' + dir_name
-    if not os.path.exists(path):
-        os.makedirs(path)
-    
-    for i in range(10):
-        plt.figure()
-        plt.plot(gamma, total_MMP_results[i], label='MMP', linestyle='--', marker='o', color='red')
-        plt.plot(gamma, total_URS_results[i], label='URS', linestyle=':', marker='x', color='blue')
-        plt.plot(gamma, total_OPT_results[i], label='OPT', linestyle='-', marker='+', color='green')
-        plt.legend(['MMP', 'URS', 'OPT'])
-        plt.title('State {}'.format(i))
-        plt.xlabel('Discount Factor $\gamma \longrightarrow$')
-        plt.ylabel("Defender's Utility $\mathcal{V}_D \longrightarrow$")
-        plt.savefig(path + '/state_{}.png'.format(i))
+        root_dir = os.getcwd()
+        dir_name = 'Updated_Model_Non_Uniform'
+        path = root_dir + '/src/zero_sum/plots/' + dir_name
+        if not os.path.exists(path):
+            os.makedirs(path)
+        
+        for i in range(10):
+            plt.figure()
+            plt.plot(gamma, total_MMP_results[i], label='MMP', linestyle='--', marker='o', color='red')
+            plt.plot(gamma, total_URS_results[i], label='URS', linestyle=':', marker='x', color='blue')
+            plt.plot(gamma, total_OPT_results[i], label='OPT', linestyle='-', marker='+', color='green')
+            plt.legend(['MMP', 'URS', 'OPT'])
+            plt.title('State {}'.format(i))
+            plt.xlabel('Discount Factor $\gamma \longrightarrow$')
+            plt.ylabel("Defender's Utility $\mathcal{V}_D \longrightarrow$")
+            plt.savefig(path + '/state_{}.png'.format(i))
 
-            
-
-    # plt.plot(gamma, URS_results[i], label='URS', color='red', marker='o')
-    #         plt.plot(gamma, OPT_results[i], label='OPT', color='blue', marker='x')
-    #         plt.plot(gamma, MMP_results[i], label='MMP', color='green', marker='+')
-    #         plt.plt.ylabel("Defender's Utility $\longrightarrow$")
-    #         plt.xlabel("$\gamma \longrightarrow$")
-    #         plt.title("Defender's value in state {}".format(i))
-    #         plt.legend()
-    #         plt.show()
     return(s)
 
 if __name__ == '__main__':
