@@ -155,7 +155,7 @@ def main():
         total_OPT_results.append(state_OPT_results)
 
     root_dir = os.getcwd()
-    dir_name = 'Expert_Model_Non_Uniform'
+    dir_name = 'Updated_Model_Uniform'
     path = root_dir + '/src/zero_sum/plots/' + dir_name
     if not os.path.exists(path):
         os.makedirs(path)
